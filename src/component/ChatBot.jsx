@@ -1,89 +1,63 @@
-// src/components/RobotLoanChatBot.jsx
+// src/components/ProfessionalLoanAssistant.jsx
 import React, { useState } from "react";
 import { FaCommentDots } from "react-icons/fa";
+
+const loanTypes = ["Personal Loan", "Home Loan", "Education Loan", "Business Loan"];
+const bankOptions = ["LIC", "HFL", "SBI", "Bank of Baroda", "Piramal", "Awash Finance", "Other Bank"];
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { from: "bot", text: "🤖 ASSISTANT: Welcome to Simrox Finance. How can I assist you today?" }
   ]);
-  const [input, setInput] = useState("");
   const [step, setStep] = useState(0);
   const [loanData, setLoanData] = useState({});
 
-  const bankOptions = ["LIC", "HFL", "SBI", "Bank of Baroda", "Piramal", "Awash Finance", "Other Bank"];
-
-  const handleBotResponse = (text) => {
-    let reply = "";
-    const lowerText = text.trim().toLowerCase();
-
-    switch (step) {
-      case 0:
-        // Accept any message as starting query
-        reply = "🤖 ASSISTANT: Please specify the type of loan you require (Personal, Home, Education, etc.).";
-        setStep(1);
-        break;
-
-      case 1:
-        if (!text) {
-          reply = "🤖 ASSISTANT: Sorry, I have no idea about this.";
-        } else {
-          setLoanData({ ...loanData, type: text });
-          reply = `🤖 ASSISTANT: Noted. You have selected a ${text} loan.\nNext, which bank do you want to apply through?\nOptions: ${bankOptions.join(", ")}`;
-          setStep(1.5);
-        }
-        break;
-
-      case 1.5:
-        // Bank selection (case-insensitive)
-        const matchedBank = bankOptions.find(bank => bank.toLowerCase() === lowerText);
-        if (!matchedBank) {
-          reply = `🤖 ASSISTANT: Sorry, I have no idea about this.\nPlease select a bank from the options: ${bankOptions.join(", ")}`;
-        } else {
-          setLoanData({ ...loanData, bank: matchedBank });
-          reply = `🤖 ASSISTANT: Bank ${matchedBank} selected.\nPlease enter the interest rate (%) applicable.`;
-          setStep(2);
-        }
-        break;
-
-      case 2:
-        // Interest rate validation: must be a number
-        if (isNaN(text)) {
-          reply = "🤖 ASSISTANT: Sorry, I have no idea about this. Please enter a valid number for interest rate.";
-        } else {
-          setLoanData({ ...loanData, interest: text });
-          reply = `🤖 ASSISTANT: Interest rate of ${text}% recorded. Enter the duration of the loan in years.`;
-          setStep(3);
-        }
-        break;
-
-      case 3:
-        // Duration validation: must be a number
-        if (isNaN(text)) {
-          reply = "🤖 ASSISTANT: Sorry, I have no idea about this. Please enter a valid number for duration in years.";
-        } else {
-          setLoanData({ ...loanData, years: text });
-          reply = `🤖 ASSISTANT: Processing complete. Summary:\n- Loan Type: ${loanData.type}\n- Bank: ${loanData.bank}\n- Interest Rate: ${loanData.interest}%\n- Duration: ${text} years\nFor detailed assistance, contact: +91-8696624101`;
-          setStep(4);
-        }
-        break;
-
-      default:
-        reply = "🤖 ASSISTANT: Sorry, I have no idea about this.";
-        break;
-    }
-
-    setMessages(prev => [...prev, { from: "bot", text: reply }]);
+  const sendBotMessage = (text) => {
+    setMessages(prev => [...prev, { from: "bot", text }]);
   };
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const handleLoanTypeClick = (type) => {
+    setLoanData({ ...loanData, type });
+    sendBotMessage(`🤖 ASSISTANT: You selected "${type}". Now, please choose the bank.`);
+    setStep(2);
+  };
 
-    const userMessage = input;
-    setMessages([...messages, { from: "user", text: userMessage }]);
-    setInput("");
+  const handleBankClick = (bank) => {
+    setLoanData({ ...loanData, bank });
+    sendBotMessage(`🤖 ASSISTANT: Bank "${bank}" selected. Please enter the interest rate (%) applicable.`);
+    setStep(3);
+  };
 
-    setTimeout(() => handleBotResponse(userMessage), 500);
+  const handleInputSubmit = (text) => {
+    const value = text.trim();
+    if (step === 3) {
+      if (isNaN(value)) {
+        sendBotMessage("🤖 ASSISTANT: Please enter a valid number for interest rate.");
+        return;
+      }
+      setLoanData({ ...loanData, interest: value });
+      sendBotMessage(`🤖 ASSISTANT: Interest rate of ${value}% recorded. Please enter the duration of the loan in years.`);
+      setStep(4);
+    } else if (step === 4) {
+      if (isNaN(value)) {
+        sendBotMessage("🤖 ASSISTANT: Please enter a valid number for loan duration in years.");
+        return;
+      }
+      setLoanData({ ...loanData, years: value });
+      sendBotMessage(
+        `🤖 ASSISTANT: Processing complete. Summary:\n- Loan Type: ${loanData.type}\n- Bank: ${loanData.bank}\n- Interest Rate: ${loanData.interest}%\n- Duration: ${value} years\nFor detailed assistance, contact: +91-8696624101`
+      );
+      setStep(5);
+    } else {
+      sendBotMessage("🤖 ASSISTANT: Sorry, I have no idea about this. Please follow the instructions.");
+    }
+  };
+
+  const handleSend = (text) => {
+    if (!text.trim()) return;
+    setMessages(prev => [...prev, { from: "user", text }]);
+    handleInputSubmit(text);
   };
 
   return (
@@ -97,14 +71,13 @@ const ChatBot = () => {
         <FaCommentDots size={24} />
       </button>
 
-      {/* Chat Box */}
       {isOpen && (
-        <div className="fixed bottom-20 right-5 w-80 bg-white border rounded-lg shadow-lg flex flex-col z-50">
+        <div className="fixed bottom-20 right-5 w-96 bg-white border rounded-lg shadow-lg flex flex-col z-50">
           <div className="p-3 bg-blue-600 text-white font-bold rounded-t-lg">
             🤖 Loan Assistant
           </div>
 
-          <div className="flex-1 p-3 overflow-y-auto h-64">
+          <div className="flex-1 p-3 overflow-y-auto h-80">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -117,18 +90,67 @@ const ChatBot = () => {
             ))}
           </div>
 
-          <div className="flex border-t">
-            <input
-              type="text"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              placeholder="Type your message..."
-              className="flex-1 p-2 outline-none"
-              onKeyDown={e => e.key === "Enter" && handleSend()}
-            />
-            <button onClick={handleSend} className="bg-blue-600 text-white px-4">
-              Send
-            </button>
+          <div className="p-3 border-t">
+            {step === 1 && (
+              <div className="flex flex-wrap gap-2">
+                {loanTypes.map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => handleLoanTypeClick(type)}
+                    className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {step === 2 && (
+              <div className="flex flex-wrap gap-2">
+                {bankOptions.map((bank) => (
+                  <button
+                    key={bank}
+                    onClick={() => handleBankClick(bank)}
+                    className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
+                  >
+                    {bank}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {(step === 3 || step === 4) && (
+              <div className="flex">
+                <input
+                  type="text"
+                  placeholder={step === 3 ? "Enter interest rate (%)" : "Enter duration in years"}
+                  className="flex-1 p-2 border rounded-l outline-none"
+                  onKeyDown={(e) => e.key === "Enter" && handleSend(e.target.value) && (e.target.value = "")}
+                />
+                <button
+                  onClick={(e) => {
+                    const inputEl = e.target.previousSibling;
+                    handleSend(inputEl.value);
+                    inputEl.value = "";
+                  }}
+                  className="bg-blue-600 text-white px-4 rounded-r"
+                >
+                  Send
+                </button>
+              </div>
+            )}
+
+            {step === 0 && (
+              <button
+                onClick={() => {
+                  sendBotMessage("🤖 ASSISTANT: Please select a loan type to proceed.");
+                  setStep(1);
+                }}
+                className="bg-blue-600 text-white px-3 py-1 rounded"
+              >
+                Start
+              </button>
+            )}
           </div>
         </div>
       )}

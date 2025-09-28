@@ -3,12 +3,18 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import personalloan from "../assets/Images/personalloan.png"
+import homeloan from "../assets/Images/homeloan.png"
+import carloan from "../assets/Images/carloan.png"
+import educationloan from "../assets/Images/educationloan.png"
+import bussnicsloan from "../assets/Images/bussnicsloan.png"
+
 const slides = [
-  { id: 1, title: "Personal Loan", desc: "Quick approval with minimal documents.", img: "https://images.unsplash.com/photo-1669012520437-5102e3fd4589?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { id: 2, title: "Home Loan", desc: "Turn your dream home into reality.", img: "https://images.unsplash.com/photo-1736319666684-a0f1f6b679cc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { id: 3, title: "Car Loan", desc: "Drive your dream car today.", img: "https://images.unsplash.com/photo-1652769924904-c316754e354d?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { id: 4, title: "Business Loan", desc: "Scale your business with instant funding.", img: "https://images.unsplash.com/photo-1657727534676-cac1bb160d64?q=80&w=704&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-  { id: 5, title: "Education Loan", desc: "Secure your future with easy education loans.", img: "https://images.unsplash.com/photo-1659080907097-6153cd4ff69d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 1, title: "Personal Loan", desc: "Quick approval with minimal documents.", img: personalloan },
+  { id: 2, title: "Home Loan", desc: "Turn your dream home into reality.", img: homeloan },
+  { id: 3, title: "Car Loan", desc: "Drive your dream car today.", img: carloan },
+  { id: 4, title: "Business Loan", desc: "Scale your business with instant funding.", img: bussnicsloan },
+  { id: 5, title: "Education Loan", desc: "Secure your future with easy education loans.", img: educationloan},
 ];
 
 const getSlideLink = (title) => {
