@@ -29,14 +29,14 @@ function AppRoutes() {
 
     <Route path='/LoanForm' element={<LoanForm/>}/>
       {/* Home Route */}
-      {/* <Route path='/' element={<Example />} /> */}
+  
 
       {/* Other Pages */}
       <Route path='/disclaimer' element={<Disclaimer/>} />
       <Route path='/privacy' element={<Privacy/>}/>
       <Route path='/terms' element={<Terms/>}/>
-      <Route path='/faqs'element={<FAQs/>}/>
-      <Route path='/helpcenter'element={<HelpCenter/>}/>
+      <Route path='/faqs' element={<FAQs/>}/>
+      <Route path='/helpcenter' element={<HelpCenter/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/personal' element={<PersonalLoan/>}/>
       <Route path='/about' element={<About/>}/>

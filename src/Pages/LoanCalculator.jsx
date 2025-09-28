@@ -37,7 +37,7 @@ export default function LoanCalculator() {
   return (
    <div className="w-full min-h-screen bg-white">
   <div className="max-w-7xl mx-auto px-4">
-    <h1 className="text-4xl font-bold text-gray-800 text-center ">
+    <h1 className="text-4xl font-bold text-gray-800 ">
       EMI Calculator
     </h1>
 

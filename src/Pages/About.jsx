@@ -1,5 +1,6 @@
 import React from "react";
-import img2 from "../assets/Images/loan.png"
+import ceoimg from "../assets/Images/ceoimg.png"
+
 
 function About() {
   return (
@@ -43,39 +44,35 @@ function About() {
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-blue-700 mb-8">Meet Our Team</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white shadow-md rounded-xl p-6">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="w-24 h-24 mx-auto rounded-full mb-4"
-              />
-              <h4 className="text-lg font-semibold text-gray-800">Ajit Singh</h4>
-              <p className="text-sm text-gray-500">Founder & CEO</p>
-            </div>
+        {/* CEO */}
+          <div className="bg-white shadow-xl rounded-2xl p-8 flex flex-col md:flex-row items-center md:items-start gap-12 mt-16 mb-8">
+          
+          {/* CEO Image */}
+          <div className="flex-shrink-0">
+            <img 
+              src={ceoimg} 
+              alt="CEO Ajit Singh" 
+              className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-2xl shadow-lg" 
+            />
+          </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="w-24 h-24 mx-auto rounded-full mb-4"
-              />
-              <h4 className="text-lg font-semibold text-gray-800">Sunil Jangid</h4>
-              <p className="text-sm text-gray-500">Finance Head</p>
-            </div>
-
-            <div className="bg-white shadow-md rounded-xl p-6">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="w-24 h-24 mx-auto rounded-full mb-4"
-              />
-              <h4 className="text-lg font-semibold text-gray-800">Ajit Singh</h4>
-              <p className="text-sm text-gray-500">Loan Advisor</p>
-            </div>
+          {/* Right: CEO Text */}
+          <div className="flex-1 text-left">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+              Meet Our CEO – Ajit Singh
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Ajit Singh is the visionary leader behind SimRox. With more than
+              5 years of experience in the finance industry, he has guided our
+              team to deliver transparent, reliable, and customer-friendly
+              services. 
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Under his leadership, SimRox has grown rapidly and continues to
+              focus on innovation, customer satisfaction, and building long-term
+              trust with clients. His mission is to make financial services 
+              accessible for everyone. 
+            </p>
           </div>
         </div>
       </div>

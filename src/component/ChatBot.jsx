@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FaCommentDots } from "react-icons/fa";
 
-const RobotLoanChatBot = () => {
+const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { from: "bot", text: "🤖 ASSISTANT: Welcome to Simrox Finance. How can I assist you today?" }
@@ -136,4 +136,4 @@ const RobotLoanChatBot = () => {
   );
 };
 
-export default RobotLoanChatBot;
+export default ChatBot;

@@ -1,7 +1,7 @@
 import SideBar from "./SideBar";
 import SideHeader from "./SideHeader";
 import Example from "./Example";
-import ChatBot from "./ChatBot"; // ✅ Import ChatBot
+import ChatBot from "./ChatBot"; 
 
 export default function Layout() {
   return (
