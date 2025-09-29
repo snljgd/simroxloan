@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -8,14 +10,43 @@ function Contact() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Your message has been submitted successfully!");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setLoading(true);
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/contact", formData);
+
+      if (res.data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent!",
+          text: "Your message has been submitted successfully.",
+          confirmButtonColor: "#16a34a",
+          didOpen: (popup) => {
+            popup.style.borderRadius = "20px"; // direct style
+          }
+        });
+
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong. Please try again.",
+        confirmButtonColor: "#dc2626", // red
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -23,7 +54,7 @@ function Contact() {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-6">Contact Us</h1>
         <p className="text-center text-gray-600 mb-12">
-          Have questions about our loans? We’d love to hear from you.  
+          Have questions about our loans? We’d love to hear from you.
           Get in touch with our support team.
         </p>
 
@@ -77,9 +108,10 @@ function Contact() {
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition"
             >
-              Submit
+              {loading ? "Sending..." : "Submit"}
             </button>
           </form>
 
@@ -97,23 +129,23 @@ function Contact() {
               📧 <strong>Email:</strong> info@simrox.com
             </p>
 
-            {/* Google Map Embed */}
             <iframe
               title="Google Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d131.71668184413662!2d73.73383186441947!3d27.217025595604696!2m3!1f62.4757351050129!2f45!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x396a9168f66b18b7%3A0xf6ba146d6a9e716e!2sWelcome%20Computer%20Nagaur!5e1!3m2!1sen!2sin!4v1758796463931!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.42983280828!2d73.73158771065106!3d27.216456646873883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396a9168f66b18b7%3A0xf6ba146d6a9e716e!2sWelcome%20Computer%20Nagaur!5e1!3m2!1sen!2sin!4v1759166558417!5m2!1sen!2sin"
               width="100%"
               height="250"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg"
-            ></iframe>
+            />
+
           </div>
         </div>
       </div>
     </div>
   );
 }
-
 
 export default Contact;
