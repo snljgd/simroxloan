@@ -56,7 +56,7 @@ function LoanForm({ setShowModal }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-blur bg-opacity-40">
       <div className="bg-gray-50 rounded-xl p-6 w-full max-w-lg relative">
         {/* Close Button */}
         <button

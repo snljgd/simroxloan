@@ -70,7 +70,7 @@ export default function SideHeader() {
           </div>
 
           {/* Mobile Grid */}
-          <div className="grid grid-cols-3 gap-2 md:hidden mt-4">
+          <div className="grid grid-cols-3 gap-2 md:hidden mt-4 pl-2 pr-2">
             {slides.map((slide, index) => (
               <Link
                 key={slide.id}

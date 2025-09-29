@@ -35,7 +35,7 @@ export default function Example() {
   });
 
   return (
-   <div className="w-full min-h-screen bg-white">
+   <div className="w-full min-h-screen bg-white pb-12">
   <div className="max-w-7xl mx-auto px-4">
     <h1 className="text-4xl font-bold mb-8 text-gray-800 text-center md:text-left">
       EMI Calculator
@@ -45,10 +45,10 @@ export default function Example() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       {/* Left: Inputs */}
-      <div className="space-y-6">
+      <div className="space-y-6 bg-white p-6 rounded-xl shadow-lg">
         {/* Loan Amount */}
         <div>
-          <label className="block mb-2 font-semibold text-gray-700">Loan Amount (₹)</label>
+          <label className="block mb-2 font-semibold sha text-gray-700">Loan Amount (₹)</label>
           <input
             type="number"
             placeholder=""
@@ -111,7 +111,7 @@ export default function Example() {
       </div>
 
       {/* Right: EMI Display + Chart */}
-      <div className="space-y-6 bg-green-50 p-4 rounded-xl shadow">
+      <div className="space-y-6 bg-green-50 p-4 rounded-xl shadow-lg justify-center">
         {/* EMI Card */}
         <div className="bg-green-50 p-6 rounded shadow w-full">
           <h2 className="text-2xl font-semibold text-gray-800">
