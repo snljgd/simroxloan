@@ -23,7 +23,7 @@ function LoanForm({ setShowModal }) {
 
     try {
       // API call to backend
-      const res = await axios.post("http://localhost:5000/apply-now", formData);
+      const res = await axios.post("http://localhost:5000/api/apply-now", formData);
 
       Swal.fire({
         title: "Success!",
@@ -45,14 +45,15 @@ function LoanForm({ setShowModal }) {
       setShowModal(false);
 
     } catch (err) {
-      console.error(err);
-      Swal.fire({
-        title: "Error!",
-        text: "Something went wrong. Please try again.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
+  console.error(err.response ? err.response.data : err.message);
+  Swal.fire({
+    title: "Error!",
+    text: err.response?.data?.message || "Something went wrong. Please try again.",
+    icon: "error",
+    confirmButtonText: "OK",
+  });
+}
+
   };
 
   return (
