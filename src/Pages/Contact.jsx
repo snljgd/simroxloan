@@ -25,7 +25,7 @@ function Contact() {
 
       if (res.data.success) {
         Swal.fire({
-          icon: "success",
+          icon: "Success",
           title: "Message Sent!",
           text: "Your message has been submitted successfully.",
           confirmButtonColor: "#16a34a",
