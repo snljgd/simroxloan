@@ -6,7 +6,7 @@ import Layout from '../component/Layout';
 import Privacy from '../Pages/Privacy';
 
 import Terms from '../Pages/Terms';
-import FAQs from '../Pages/Faqs';
+import FAQs from '../Pages/FAQs';
 import HelpCenter from '../Pages/HelpCenter';
 import Contact from '../Pages/Contact';
 import PersonalLoan from '../Pages/PersonalLoan';
@@ -41,9 +41,9 @@ function AppRoutes() {
       <Route path='/personal' element={<PersonalLoan/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/loans' element={<Loans/>}/>
-      <Route path='/Homeloan' element={<HomeLoan/>}/>
-      <Route path='/Carloan' element={<CarLoan/>}/>
-      <Route path='/Businessloan' element={<BusinessLoan/>}/>
+      <Route path='/homeloan' element={<HomeLoan/>}/>
+      <Route path='/carloan' element={<CarLoan/>}/>
+      <Route path='/businessloan' element={<BusinessLoan/>}/>
       <Route path='/LoanCalculator' element={<LoanCalculator/>}/>
       <Route path='/Educationloan' element={<EducationLoan/>}/>
     </Routes>
