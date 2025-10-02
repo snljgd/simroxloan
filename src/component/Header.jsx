@@ -3,6 +3,7 @@ import { HiMenu, HiX } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import LoanForm from '../Pages/LoanForm' // LoanForm import
 
+
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -35,6 +36,7 @@ function Header() {
         <nav className="hidden md:flex space-x-6 font-medium">
           <Link to="/" className="hover:text-green-300 transition">Home</Link>
           <Link to="/loans" className="hover:text-green-300 transition">Loans</Link>
+          <Link to="/MutualFund" className="hover:text-green-300 transition">MutualFund</Link>
           <Link to="/about" className="hover:text-green-300 transition">About Us</Link>
           <Link to="/contact" className="hover:text-green-300 transition">Contact</Link>
           <a

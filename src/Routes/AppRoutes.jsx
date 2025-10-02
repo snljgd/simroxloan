@@ -18,6 +18,7 @@ import BusinessLoan from '../Pages/BusinessLoan';
 import LoanCalculator from '../Pages/LoanCalculator';
 import EducationLoan from '../Pages/EducationLoan';
 import LoanForm from '../Pages/LoanForm';
+import MutualFund from '../Pages/MutualFund';
 
 
 
@@ -46,6 +47,7 @@ function AppRoutes() {
       <Route path='/businessloan' element={<BusinessLoan/>}/>
       <Route path='/LoanCalculator' element={<LoanCalculator/>}/>
       <Route path='/Educationloan' element={<EducationLoan/>}/>
+      <Route path='/MutualFund' element={<MutualFund/>}/>
     </Routes>
   );
 }
