@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/Images/logo3.png'
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'; // ✅ icons import
 
 function Footer() {
@@ -9,10 +10,20 @@ function Footer() {
 
         {/* Brand / About */}
         <div>
-          <h2 className="text-2xl font-bold">SimRox</h2>
+          <img
+            src={logo}
+            alt="SimRox Logo"
+            className="h-21 w-60"
+          />
           <p className="mt-4 text-sm">
             Your trusted partner in personal, home, and business loans.
             Helping you achieve financial freedom with flexible EMI plans.
+            <br />
+            <br />
+
+            SimRox loan office, Tiyagi Market,
+            Rathori kuwa Sharda bal school road,
+            Nagaur 341001, Rajasthan
           </p>
         </div>
 
@@ -47,7 +58,7 @@ function Footer() {
             <li><Link to="/disclaimer" className="hover:text-green-300 transition">Disclaimer</Link></li>
           </ul>
 
-        
+
           {/* Social Media Icons */}
           <div className="flex space-x-3 mt-4">
             {/* Facebook */}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import LoanForm from '../Pages/LoanForm' // LoanForm import
-
+import logo from '../assets/Images/logo3.png' // ✅ Correct import
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,11 +22,13 @@ function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between p-6">
         {/* Logo */}
         <div className="flex items-center space-x-3">
-          <div className="bg-white text-blue-700 font-bold text-xl px-3 py-2 rounded-lg shadow-md">
-            <Link to="/" className="text-xl font-bold">
-        SimRox
-      </Link>
-          </div>
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="SimRox Logo"
+              className="h-12 w-auto"
+            />
+          </Link>
           <span className="text-lg font-semibold hidden md:inline">
             Empowering Your Dreams
           </span>
@@ -37,16 +39,9 @@ function Header() {
           <Link to="/" className="hover:text-green-300 transition">Home</Link>
           <Link to="/loans" className="hover:text-green-300 transition">Loans</Link>
           <Link to="/MutualFund" className="hover:text-green-300 transition">MutualFund</Link>
-          <Link to="/about" className="hover:text-green-300 transition">About Us</Link>
+          <Link to="/Insurance" className="hover:text-green-300 transition">Insurance</Link>
           <Link to="/contact" className="hover:text-green-300 transition">Contact</Link>
-          <a
-            href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-green-300 transition"
-          >
-            CIBIL Score
-          </a>
+          <Link to="/about" className="hover:text-green-300 transition">About Us</Link>
         </nav>
 
         {/* CTA Button - Desktop */}
@@ -65,40 +60,36 @@ function Header() {
             {isOpen ? <HiX className="w-8 h-8" /> : <HiMenu className="w-8 h-8" />}
           </button>
         </div>
-      </div>
+      </div> {/* ✅ div properly closed */}
 
       {/* Decorative Pattern */}
       <div className="h-2 bg-gradient-to-r from-green-400 via-blue-300 to-green-500"></div>
 
-      {/* Mobile Menu with Transition */}
-      {/* Mobile Menu with Transition */}
-{isOpen && (
-  <nav
-    className="md:hidden bg-blue-800/95 p-6 space-y-4 flex flex-col rounded-b-xl shadow-lg animate-slideDown"
-  >
-    <Link to="/" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Home</Link>
-    <Link to="/loans" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Loans</Link>
-    <Link to="/about" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>About Us</Link>
-    <Link to="/contact" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Contact</Link>
-    <a
-      href='https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA'
-      target='_blank'
-      rel="noopener noreferrer"
-      className='hover:text-green-300 transition'
-    >
-      CIBIL Score
-    </a>
-    <button
-      onClick={() => { setShowModal(true); setIsOpen(false) }}
-      className="bg-green-400 text-blue-900 font-bold px-4 py-2 rounded-lg hover:bg-green-500 transition"
-    >
-      Apply Now
-    </button>
-  </nav>
-)}
+      {/* Mobile Menu */}
+      {isOpen && (
+        <nav className="md:hidden bg-blue-800/95 p-6 space-y-4 flex flex-col rounded-b-xl shadow-lg animate-slideDown">
+          <Link to="/" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/loans" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Loans</Link>
+          <Link to="/about" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link to="/contact" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Contact</Link>
+          <a
+            href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-green-300 transition"
+          >
+            CIBIL Score
+          </a>
+          <button
+            onClick={() => { setShowModal(true); setIsOpen(false) }}
+            className="bg-green-400 text-blue-900 font-bold px-4 py-2 rounded-lg hover:bg-green-500 transition"
+          >
+            Apply Now
+          </button>
+        </nav>
+      )}
 
-
-      {/* ✅ LoanForm Modal with Blur Background */}
+      {/* LoanForm Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
           <LoanForm setShowModal={setShowModal} />
