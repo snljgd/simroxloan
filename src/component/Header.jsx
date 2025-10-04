@@ -42,6 +42,7 @@ function Header() {
           <Link to="/Insurance" className="hover:text-green-300 transition">Insurance</Link>
           <Link to="/contact" className="hover:text-green-300 transition">Contact</Link>
           <Link to="/about" className="hover:text-green-300 transition">About Us</Link>
+          <Link to="/Blogs" className='hover:text-green-300 transtioin'>Blogs</Link>
         </nav>
 
         {/* CTA Button - Desktop */}
@@ -74,6 +75,7 @@ function Header() {
           <Link to="/Insurance" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Insurance</Link>
           <Link to="/about" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>About Us</Link>
           <Link to="/contact" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/Blogs" className='hover:text-green-300 transition' onClick={()=> setIsOpen(false)}> Blogs</Link>
           
           <button
             onClick={() => { setShowModal(true); setIsOpen(false) }}

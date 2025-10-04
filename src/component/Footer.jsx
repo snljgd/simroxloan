@@ -67,6 +67,7 @@ function Footer() {
             <li><Link to="/terms" className="hover:text-green-300 transition">Terms of Service</Link></li>
             <li><Link to="/privacy" className="hover:text-green-300 transition">Privacy Policy</Link></li>
             <li><Link to="/disclaimer" className="hover:text-green-300 transition">Disclaimer</Link></li>
+            <li> <Link to="/blogs" className='hover:text-green-300 transition' > Blogs</Link> </li>
           </ul>
 
 

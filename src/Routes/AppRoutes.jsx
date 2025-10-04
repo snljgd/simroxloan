@@ -20,6 +20,7 @@ import EducationLoan from '../Pages/EducationLoan';
 import LoanForm from '../Pages/LoanForm';
 import MutualFund from '../Pages/MutualFund';
 import Insurance from '../Pages/Insurance';
+import Blogs from '../Pages/Blogs';
 
 
 
@@ -50,6 +51,7 @@ function AppRoutes() {
       <Route path='/Educationloan' element={<EducationLoan/>}/>
       <Route path='/MutualFund' element={<MutualFund/>}/>
       <Route path='/Insurance' element={<Insurance/>}/>
+      <Route path='/Blogs' element={<Blogs/>}/>
     </Routes>
   );
 }
