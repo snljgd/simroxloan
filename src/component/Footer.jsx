@@ -35,6 +35,8 @@ function Footer() {
             <li><Link to="/Homeloan" className="hover:text-green-300 transition">Home Loan</Link></li>
             <li><Link to="/Carloan" className="hover:text-green-300 transition">Car Loan</Link></li>
             <li><Link to="/Businessloan" className="hover:text-green-300 transition">Business Loan</Link></li>
+            <li><Link to="/MutualFund" className="hover:text-green-300 transition"> MutualFund</Link> </li>
+            <li><Link to="/Insurance" className="hover:text-green-300 transition"> Insurance</Link> </li>
           </ul>
         </div>
 
@@ -46,6 +48,15 @@ function Footer() {
             <li><Link to="/faqs" className="hover:text-green-300 transition">FAQs</Link></li>
             <li><Link to="/LoanCalculator" className="hover:text-green-300 transition">Loan Calculator</Link></li>
             <li><Link to="/contact" className="hover:text-green-300 transition">Contact Us</Link></li>
+
+            <a
+            href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-green-300 transition"
+          >
+            CIBIL Score
+          </a>
           </ul>
         </div>
 

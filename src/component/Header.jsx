@@ -67,19 +67,14 @@ function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden bg-blue-800/95 p-6 space-y-4 flex flex-col rounded-b-xl shadow-lg animate-slideDown">
+        <nav className="md:hidden bg-blue-600/95 p-6 space-y-4 flex flex-col rounded-b-xl shadow-lg animate-slideDown">
           <Link to="/" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/loans" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Loans</Link>
+          <Link to="/MutualFund" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>MutualFund</Link>
+          <Link to="/Insurance" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Insurance</Link>
           <Link to="/about" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>About Us</Link>
           <Link to="/contact" className="hover:text-green-300 transition" onClick={() => setIsOpen(false)}>Contact</Link>
-          <a
-            href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-green-300 transition"
-          >
-            CIBIL Score
-          </a>
+          
           <button
             onClick={() => { setShowModal(true); setIsOpen(false) }}
             className="bg-green-400 text-blue-900 font-bold px-4 py-2 rounded-lg hover:bg-green-500 transition"
