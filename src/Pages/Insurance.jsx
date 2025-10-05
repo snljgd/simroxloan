@@ -8,6 +8,16 @@ import health from "../assets/Images/health.png";
 import vichal from "../assets/Images/vichal.png";
 import life from "../assets/Images/life.png";
 import back2 from "../assets/Images/back1.png";
+import back3 from "../assets/Images/back3.jpg"
+// import back4 from "../assets/Images/back4.png"
+
+
+import tataimg from "../assets/Images/tataimg.png"
+import iciciimg from "../assets/Images/iciciimg.png"
+import licimg from "../assets/Images/licimg.png"
+import sbiimg from "../assets/Images/sbiimg.jpg"
+import policyimg from "../assets/Images/policyimg.jpg"
+import hdfcimg from "../assets/Images/hdfcimg.jpg"
 
 const textVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -31,7 +41,7 @@ const Insurance = () => {
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 py-40 px-6">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4 text-white"
+            className="text-4xl md:text-5xl font-bold mb-4 text-white backdrop-brightness-75 " 
             initial="hidden"
             animate="visible"
             variants={textVariant}
@@ -39,7 +49,7 @@ const Insurance = () => {
             Secure Your Future with SimRox Insurance
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl max-w-3xl mx-auto text-white"
+            className="text-lg md:text-xl max-w-3xl mx-auto underline text-white shadow-amber-50 backdrop-brightness-75 "
             initial="hidden"
             animate="visible"
             variants={textVariant}
@@ -54,7 +64,7 @@ const Insurance = () => {
           >
             <Link
               to="/contact"
-              className="mt-8 inline-block bg-white text-blue-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition"
+              className="mt-8 inline-block bg-white text-blue-900 text-shadow-blue-50font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition"
             >
               Get Free Quote
             </Link>
@@ -168,10 +178,53 @@ const Insurance = () => {
         </div>
       </section>
 
+    
+      {/* Our Partners Section */}
+<section className="py-16 bg-white text-center">
+  <motion.h2
+    initial={{ opacity: 0, y: -30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    className="text-4xl font-bold bg-gradient-to-r from-blue-700 via-green-600 to-blue-700 bg-clip-text text-transparent mb-10"
+  >
+    Our Trusted Partners
+  </motion.h2>
+
+  <div className="flex flex-wrap justify-center gap-10 px-6">
+    {[
+      { name: "Tata AIA Life Insurance", logo: tataimg },
+      { name: "LIC (Life Insurance Corporation)", logo: licimg },
+      { name: "SBI Life Insurance", logo: sbiimg },
+      { name: "Policybazaar", logo: policyimg },
+      { name: "HDFC Life", logo: hdfcimg },
+      { name: "ICICI Prudential", logo: iciciimg },
+    ].map((partner, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.2, duration: 0.6 }}
+        className="bg-white rounded-2xl shadow-md p-6 w-52 flex flex-col items-center hover:shadow-lg hover:scale-105 transition-transform duration-300"
+      >
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          className="h-16 object-contain mb-3"
+        />
+        <p className="text-gray-700 font-semibold text-sm text-center">
+          {partner.name}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+
       {/* Call to Action */}
-      <section className="bg-gradient-to-r from-blue-700 via-green-600 to-blue-700 text-white text-center py-20 px-6">
+      <section  className="relative bg-cover bg-center bg-no-repeat text-white text-center h-80  "
+        style={{ backgroundImage: `url(${back3})` }} > 
         <motion.h2
-          className="text-4xl font-bold mb-4"
+          className="text-5xl font-bold mb-4 py-10 backdrop-brightness-75"
           initial="hidden"
           whileInView="visible"
           variants={textVariant}
@@ -179,7 +232,7 @@ const Insurance = () => {
           Protect What Matters Most
         </motion.h2>
         <motion.p
-          className="text-lg max-w-2xl mx-auto mb-8"
+          className="text-2xl max-w-2xl mx-auto mb-8 backdrop-brightness-75"
           initial="hidden"
           whileInView="visible"
           variants={textVariant}
@@ -200,6 +253,9 @@ const Insurance = () => {
           </Link>
         </motion.div>
       </section>
+
+
+
     </div>
   );
 };
