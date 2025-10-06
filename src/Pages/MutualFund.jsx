@@ -175,11 +175,10 @@ const MutualFund = () => {
           Join thousands of investors who trust SimRox for their mutual funds and SIP planning.
         </motion.p>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4, duration: 1 }}>
-          <Link
-            to="/contact"
+          <Link to="/SipCalculator"
             className="bg-white text-blue-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition"
           >
-            Get Started Now
+            Estimate Your Returns
           </Link>
         </motion.div>
       </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Images/logo3.png'
-import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'; // ✅ icons import
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube, FaTwitter } from 'react-icons/fa'; // ✅ icons import
 
 function Footer() {
   return (
@@ -47,16 +47,17 @@ function Footer() {
             <li><Link to="/helpcenter" className="hover:text-green-300 transition">Help Center</Link></li>
             <li><Link to="/faqs" className="hover:text-green-300 transition">FAQs</Link></li>
             <li><Link to="/LoanCalculator" className="hover:text-green-300 transition">Loan Calculator</Link></li>
+            <li><Link to="/SipCalculator" className='hover:text-green-300 transition'> SIP Calculator</Link> </li>
             <li><Link to="/contact" className="hover:text-green-300 transition">Contact Us</Link></li>
 
             <a
-            href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-green-300 transition"
-          >
-            CIBIL Score
-          </a>
+              href="https://myscore.cibil.com/CreditView/enrollShort_new.page?enterprise=CIBIL&offer=FACRA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-300 transition"
+            >
+              CIBIL Score
+            </a>
           </ul>
         </div>
 
@@ -87,7 +88,7 @@ function Footer() {
             transition-all duration-300
             "
             >
-              <FaFacebookF className="text-white w-5 h-5" />
+              <FaFacebookF className="text-white w-4 h-4" />
             </a>
 
             {/* Instagram */}
@@ -104,8 +105,43 @@ function Footer() {
       transition-all duration-300
     "
             >
-              <FaInstagram className="text-white w-5 h-5" />
+              <FaInstagram className="text-white w-4 h-4" />
             </a>
+            {/* youtube */}
+
+            <a
+              href="https://youtube.com/@Simroxlaons"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+      w-10 h-10 flex items-center justify-center rounded-full
+      bg-gradient-to-r from-red-500 to-red-700
+      hover:from-red-600 hover:to-red-800
+      shadow-lg hover:shadow-xl
+      transform hover:scale-110
+      transition-all duration-300
+    "
+            >
+              <FaYoutube className="text-white w-4 h-4" />
+            </a>
+
+            {/* X (Twitter) */}
+            <a
+              href="https://x.com/simroxloans"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+      w-10 h-10 flex items-center justify-center rounded-full
+      bg-gradient-to-r from-gray-800 to-black
+      hover:from-gray-700 hover:to-gray-900
+      shadow-lg hover:shadow-xl
+      transform hover:scale-110
+      transition-all duration-300
+    ">
+              <FaTwitter className="text-white w-4 h-4" />
+            </a>
+
+
 
             {/* WhatsApp */}
             <a
@@ -116,7 +152,7 @@ function Footer() {
       w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 shadow-lg hover:shadow-xltransform hover:scale-110transition-all duration-300
     "
             >
-              <FaWhatsapp className="text-white w-5 h-5" />
+              <FaWhatsapp className="text-white w-4 h-4" />
             </a>
           </div>
 

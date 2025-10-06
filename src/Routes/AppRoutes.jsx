@@ -21,6 +21,8 @@ import LoanForm from '../Pages/LoanForm';
 import MutualFund from '../Pages/MutualFund';
 import Insurance from '../Pages/Insurance';
 import Blogs from '../Pages/Blogs';
+import SipCalculator from '../Pages/SipCalculator';
+import ReviewSection from '../component/ReviewSection';
 
 
 
@@ -31,6 +33,8 @@ function AppRoutes() {
     <Route path='/' element={<Layout/>}/> 
 
     <Route path='/LoanForm' element={<LoanForm/>}/>
+
+    <Route path='ReviewSection' element={<ReviewSection/>}/>
       {/* Home Route */}
   
 
@@ -52,6 +56,7 @@ function AppRoutes() {
       <Route path='/MutualFund' element={<MutualFund/>}/>
       <Route path='/Insurance' element={<Insurance/>}/>
       <Route path='/Blogs' element={<Blogs/>}/>
+      <Route path='/SipCalculator' element={<SipCalculator/>}/>
     </Routes>
   );
 }
