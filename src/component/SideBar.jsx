@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../assets/Images/Slide1.jpg";
 import img2 from "../assets/Images/ceoimg.png";
 import img3 from "../assets/Images/mutual.png";
-import img4 from "../assets/Images/slide4.jpg";
+// import img4 from "../assets/Images/slide4.jpg";
 const slides = [
   {
     id: 1,
@@ -40,7 +40,7 @@ const slides = [
     description: `Easy, fast, and secure — get the right coverage in just a few clicks.. 
     <br /><br />
     Be prepared for life’s uncertainties with affordable insurance plans tailored to your needs.`,
-    img: img4,
+    img: img3,
   },
 ];
 
