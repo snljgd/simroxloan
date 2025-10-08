@@ -1,91 +1,119 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+
 import img1 from "../assets/Images/Slide1.jpg";
 import img2 from "../assets/Images/ceoimg.png";
 import img3 from "../assets/Images/mutual.png";
-
+import img4 from "../assets/Images/slide4.jpg"
 const slides = [
-  { id: 1, title: "Personal Loan", description: "Quick loans.", img: img1 },
-  { id: 2, title: "Insurance", description: "Secure your future.", img: img2 },
-  { id: 3, title: "Mutual Funds", description: "Invest smartly.", img: img3 },
-  { id: 4, title: "Business Loan", description: "Grow your business.", img: img2 },
+  {
+    id: 1,
+    title: "Get the Best Loan Options at One Place",
+    description: `Get instant personal loans for your every need — travel, wedding, medical, or education. 
+    <br /><br />
+    Quick approval, minimal documents, and flexible EMIs designed for your comfort.`,
+    img: img1,
+  },
+  {
+    id: 2,
+    title: "Meet Our CEO",
+    description: `Mr. <b>Ajit Singh</b>, an experienced financial expert with over <b> 5 years</b> in the industry, 
+    leads SimRox with dedication and integrity. 
+    <br /><br />
+    Under his guidance, we focus on <b>customer-first</b> solutions, innovation, and transparency. 
+    <br /><br />
+    He is responsible for building a team that delivers trust, efficiency, and excellent service across all our products.`,
+    img: img2,
+  },
+  {
+    id: 3,
+    title: "Mutual Funds",
+    description: `Grow your wealth smartly with expert-managed mutual fund portfolios. 
+    <br /><br />
+    Start your SIP today and build long-term financial security for your future.`,
+    img: img3,
+  },
+  {
+    id: 4,
+    title: "Because Your Family Deserves the Best Protection",
+    description: `Easy, fast, and secure — get the right coverage in just a few clicks.. 
+    <br /><br />
+    Be prepared for life’s uncertainties with affordable insurance plans tailored to your needs.`,
+    img: img4,
+  },
 ];
 
-export default function SideBar() {
+const SideBar = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
+    const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 3000);
-    return () => clearInterval(id);
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
-  const prevSlide = () =>
+  const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % slides.length);
+  };
 
-  // touch handlers for mobile swipe
-  const handleTouchStart = (e) => setTouchStart(e.touches[0].clientX);
-  const handleTouchEnd = (e) => {
-    if (touchStart == null) return;
-    const touchEnd = e.changedTouches[0].clientX;
-    const diff = touchStart - touchEnd;
-    if (diff > 50) nextSlide();
-    else if (diff < -50) prevSlide();
-    setTouchStart(null);
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#BDE1F9] to-[#E7F6FF]">
-      {/* wrapper width: full of parent container */}
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-[#c3e7ff] to-[#ffffff]">
+      {/* Slides Container */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
-        // translate in % (100% of parent container) so it matches inner slide width
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
       >
         {slides.map((slide) => (
-          <div
+          <section
             key={slide.id}
-            className="flex flex-col md:flex-row items-center justify-between min-w-full flex-none h-[420px] md:h-[520px] p-4"
+            className="w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-12 md:py-20 flex-shrink-0"
           >
-            <div className="w-full md:w-1/2 p-4 text-center md:text-left">
-              <h2 className="text-2xl md:text-4xl font-bold">{slide.title}</h2>
-              <p className="mt-2 text-gray-700">{slide.description}</p>
+            {/* Left Text Section */}
+            <div className="md:w-1/2 space-y-4 text-center md:text-left">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
+                {slide.title}
+              </h2>
+              <p
+                className="text-gray-700 text-base md:text-lg leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: slide.description }}
+              />
             </div>
 
-            <div className="w-full md:w-1/2 flex items-center justify-center">
+            {/* Right Image Section */}
+            <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
               <img
                 src={slide.img}
                 alt={slide.title}
-                className="w-[90%] md:w-full h-[220px] md:h-[420px] object-contain"
+                className="w-[280px] md:w-[400px] rounded-xl object-cover shadow-lg"
               />
             </div>
-          </div>
+          </section>
         ))}
       </div>
 
-      {/* controls */}
-      <button onClick={prevSlide} className="absolute top-1/2 left-3 -translate-y-1/2 p-2 bg-black/40 rounded-full text-white">
+      {/* Left Arrow */}
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/70"
+      >
         <FaChevronLeft />
       </button>
-      <button onClick={nextSlide} className="absolute top-1/2 right-3 -translate-y-1/2 p-2 bg-black/40 rounded-full text-white">
+
+      {/* Right Arrow */}
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-3 rounded-full hover:bg-black/70"
+      >
         <FaChevronRight />
       </button>
-
-      {/* indicators */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`w-2 h-2 rounded-full ${i === currentIndex ? "bg-white" : "bg-gray-400"}`}
-            onClick={() => setCurrentIndex(i)}
-          />
-        ))}
-      </div>
     </div>
   );
-}
+};
+
+export default SideBar;

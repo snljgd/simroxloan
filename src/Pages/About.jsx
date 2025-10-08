@@ -7,7 +7,7 @@ function About() {
     <section className="bg-gray-50 min-h-screen py-16 px-6">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
-        <h1 className="text-4xl md:text-5xl font-bold text-blue-700 mb-6">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-900 via-green-600 to-blue-700 bg-clip-text text-transparent mb-6">
           About Us
         </h1>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">

@@ -79,11 +79,11 @@ function Contact() {
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder="Your Email Optional"
               value={formData.email}
               onChange={handleChange}
               className="w-full mb-4 p-3 border rounded-lg focus:ring focus:ring-green-400 outline-none"
-              required
+            
             />
 
             <input

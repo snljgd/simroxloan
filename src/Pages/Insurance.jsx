@@ -31,17 +31,17 @@ const imageVariant = {
 
 const Insurance = () => {
   return (
-    <div className="bg-gray-50 text-gray-800 overflow-hidden">
+    <div className="bg-gray-50  text-gray-800 overflow-hidden ">
 
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center bg-no-repeat text-white text-center"
-        style={{ backgroundImage: `url(${back2})` }}
+        className="relative bg-cover bg-center bg-no-repeat  text-white text-center"
+        
       >
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] to-[#c3e7ff]"></div>
         <div className="relative z-10 py-40 px-6">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4 text-white backdrop-brightness-75 " 
+            className="text-4xl md:text-5xl font-bold mb-4 text-black " 
             initial="hidden"
             animate="visible"
             variants={textVariant}
@@ -49,7 +49,7 @@ const Insurance = () => {
             Secure Your Future with SimRox Insurance
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl max-w-3xl mx-auto underline text-white shadow-amber-50 backdrop-brightness-75 "
+            className="text-lg md:text-xl max-w-3xl mx-auto underline text-black shadow-amber-50  "
             initial="hidden"
             animate="visible"
             variants={textVariant}
@@ -64,7 +64,7 @@ const Insurance = () => {
           >
             <Link
               to="/contact"
-              className="mt-8 inline-block bg-white text-blue-900 text-shadow-blue-50font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition"
+              className="mt-8 inline-block bg-white text-blue-900 text-shadow-blue-50font-semibold px-8 py-3 rounded-lg hover:bg-blue-200 transition"
             >
               Get Free Quote
             </Link>
