@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../assets/Images/Slide1.jpg";
 import img2 from "../assets/Images/ceoimg.png";
 import img3 from "../assets/Images/mutual.png";
-import img4 from "../assets/Images/slide4.jpg"
+import img4 from "../assets/Images/slide4.jpg";
 const slides = [
   {
     id: 1,
