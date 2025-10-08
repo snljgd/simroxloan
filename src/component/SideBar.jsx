@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 import img1 from "../assets/Images/slide1.jpg";
 import img2 from "../assets/Images/ceoimg.png";
 import img3 from "../assets/Images/mutual.png";
